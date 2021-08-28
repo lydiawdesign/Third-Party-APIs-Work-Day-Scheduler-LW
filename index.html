@@ -34,90 +34,93 @@
       <!-- used bootstrap forms, input group, with text area as the basic foundation -->
       <div id="sevenAM" class="row time-block">
         <div class="input-group">
-          <span class="input-group-text col-md-1 hour">7:00AM</span>
-          <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-          <button class="btn saveBtn"><i class="fas fa-save"></i></button>
+          <span id="sevenAM-hour" class="input-group-text col-md-1 hour" data-hour="7">7:00AM</span>
+          <textarea id="sevenAM-event" class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="sevenAMSave" class="btn saveBtn" id="sevenAM-btn"><i class="fas fa-save"></i></button>
         </div>
      </div>
 
      <div id="eightAM" class="row time-block">
-      <div class="input-group">
-        <span class="input-group-text col-md-1 hour">8:00AM</span>
-        <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-        <button class="btn saveBtn"><i class="fas fa-save"></i></button>
+        <div class="input-group">
+          <span id="eightAM-hour"class="input-group-text col-md-1 hour" data-hour="8">8:00AM</span>
+          <textarea id="eightAM-event"class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="eightAMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+     </div>
+
+      <div id="nineAM" class="row time-block">
+        <div class="input-group">
+          <span id="nineAM-hour"class="input-group-text col-md-1 hour" data-hour="9">9:00AM</span>
+          <textarea id="nineAM-event"class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="nineAMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
       </div>
-   </div>
 
-   <div id="nineAM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">9:00AM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
+      <div id="tenAM" class="row time-block">
+        <div class="input-group">
+          <span id="tenAM-hour"class="input-group-text col-md-1 hour" data-hour="10">10:00AM</span>
+          <textarea id="tenAM-event"class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="tenAMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="elevenAM" class="row time-block">
+        <div class="input-group">
+          <span id="elevenAM-hour"class="input-group-text col-md-1 hour" data-hour="11">11:00AM</span>
+          <textarea id="elevenAM-event"class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="elevenAMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="noon" class="row time-block">
+        <div class="input-group">
+          <span id="noon-hour" class="input-group-text col-md-1 hour" data-hour="12">12:00AM</span>
+          <textarea id="noon-event"class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="noonSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="onePM" class="row time-block">
+        <div class="input-group">
+          <span id="onePM-hour" class="input-group-text col-md-1 hour" data-hour="13">1:00PM</span>
+          <textarea id="onePM-event" class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button id="onePMSave" class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="twoPM" class="row time-block">
+        <div class="input-group">
+          <span id="twoPM-hour"class="input-group-text col-md-1 hour" data-hour="14">2:00PM</span>
+          <textarea id="twoPM-event" class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="twoPMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="threePM" class="row time-block">
+        <div class="input-group">
+          <span class="input-group-text col-md-1 hour" data-hour="15">3:00PM</span>
+          <textarea id="threePM-event" class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="threePMSave"class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
+
+      <div id="fourPM" class="row time-block ">
+        <div class="input-group">
+          <span class="input-group-text col-md-1 hour" data-hour="16">4:00PM</span>
+          <textarea id="fourPM-event" class="form-control col-md-10 description" aria-label="With textarea"></textarea>
+          <button d="fourPMSave" class="btn saveBtn"><i class="fas fa-save"></i></button>
+        </div>
+      </div>
     </div>
- </div>
 
-  <div id="tenAM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">10:00AM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="elevenAM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">11:00AM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="noon" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">12:00AM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="onePM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">1:00PM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="twoPM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">2:00PM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="threePM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">3:00PM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <div id="fourPM" class="row time-block">
-    <div class="input-group">
-      <span class="input-group-text col-md-1 hour">4:00PM</span>
-      <textarea class="form-control col-md-10 description" aria-label="With textarea"></textarea>
-      <button class="btn saveBtn"><i class="fas fa-save"></i></button>
-    </div>
-  </div>
-
-  <p id="freedom">You made it! It's the end of your workday, go out and be free. Enjoy your time away :)</p>
+    <p id="freedom">You made it! It's the end of your workday, go out and be free. Enjoy your time away :)</p>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <!-- link to javascript file -->
-  <script src="Assets/JS/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- added link to javascript file -->
+    <script src="Assets/JS/script.js"></script>
   </body>
 </html>
+
+
