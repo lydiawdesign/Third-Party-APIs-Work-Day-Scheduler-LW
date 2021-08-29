@@ -1,7 +1,7 @@
 # Third-Party-APIs-Work-Day-Scheduler-LW
 
 Final Link to Project: 
-repo link: 
+repo link: https://github.com/lydiawdesign/Third-Party-APIs-Work-Day-Scheduler-LW
 
 ## User Story
 
@@ -30,6 +30,8 @@ THEN I am presented with timeblocks for standard business hours
 WHEN I view the timeblocks for that day
 THEN each timeblock is color coded to indicate whether it is in the past, present, or future
 
+- tried doing with the timeblockColors function (doesn't work). The idea was that there is a variale that would get the attribute of the hour attribute (data-hour), then log it in the console, and check if that number is equal to the current time, past the current time, or less than the current time. Based on the results then it would add the style classes listed in css. 
+
 
 WHEN I click into a timeblock
 THEN I can enter an event
@@ -39,6 +41,8 @@ THEN I can enter an event
 
 WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
+
+- tried doing this in lines 144-207 in the javascript (doesn't work). The logic was to set a variable that held the event description as a value, then to show that in the console log and to store that data in local storage.  
 
 
 WHEN I refresh the page
