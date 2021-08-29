@@ -1,6 +1,6 @@
 # Third-Party-APIs-Work-Day-Scheduler-LW
 
-Final Link to Project: 
+Final Link to Project: https://lydiawdesign.github.io/Third-Party-APIs-Work-Day-Scheduler-LW/
 repo link: https://github.com/lydiawdesign/Third-Party-APIs-Work-Day-Scheduler-LW
 
 ## User Story
