@@ -32,6 +32,8 @@ THEN each timeblock is color coded to indicate whether it is in the past, presen
 
 - tried doing with the timeblockColors function (doesn't work). The idea was that there is a variale that would get the attribute of the hour attribute (data-hour), then log it in the console, and check if that number is equal to the current time, past the current time, or less than the current time. Based on the results then it would add the style classes listed in css. 
 
+- then I went back and tried a new logic. I tried used moment.js to define the timeNow. then I wanted to get the time from the timeblocks and parse it. Then check what the outcome of that is to the current time and based on if it's equal to, less than, or more than, add and remove the neccessary class (future, present, past). Unfortunately, I don't believe this works either but it's difficult to tell since it's too late to test properly. 
+
 
 WHEN I click into a timeblock
 THEN I can enter an event
@@ -42,8 +44,10 @@ THEN I can enter an event
 WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 
-- tried doing this in lines 144-207 in the javascript (doesn't work). The logic was to set a variable that held the event description as a value, then to show that in the console log and to store that data in local storage.  
+- tried doing this in lines 47-96 in the javascript (doesn't work). The logic was to set a variable that held the event description as a value, then to show that in the console log and to store that data in local storage.  
 
 
 WHEN I refresh the page
 THEN the saved events persist
+
+- tried doing this in 100-17 by defining the variable of description to get the value added and then setting and getting the item to the local storage. (doesn't work)

@@ -2,143 +2,35 @@
 var todayDate = moment().format('dddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
-var sevenAM = moment().hour(7);
-var eightAM = moment().hour(8);
-var nineAM = moment().hour(9);
-var tenAM = moment().hour(10);
-var elevenAM = moment().hour(11);
-var noon = moment().hour(12);
-var onePM = moment().hour(13);
-var twoPM = moment().hour(14);
-var threePM = moment().hour(15);
-var fourPM = moment().hour(16);
 
-// (doesn't work) color coding the timeblocks to indicated if the hour is in the past, present, or future. 
+// trying the time block color function again a different way since the first one doesn't work
 function timeblockColors () {
-    var timeNow = moment().hours();
-    timeNow = parseInt(hour);
-    
-    // checking if the hour is equal to, less than, or more than 7 AM to determine present, past, future.
-    var check7 = document.getAttribute("sevenAM-hour");
-    console.log(check7);
-    if (timeNow === check7) {
-        $("#sevenAM-event").addClass("present");
-    } 
-    else if (timeNow < check7) {
-        $("#sevenAM-event").addClass("past");
-    }
-    else {
-        $("#sevenAM-event").addClass("future");
-    };
+    // from the moment.js documentation
+    var timeNow = moment().hour();
 
-    // checking if the hour is equal to, less than, or more than 8 AM to determine present, past, future.
-    var check8 = document.getAttribute("eightAM-hour");    
-    if (timeNow === check8) {
-        $("#eightAM-event").addClass("present");
-    } 
-    else if (timeNow < check8) {
-        $("#eightAM-event").addClass("past");
-    }
-    else {
-        $("#eightAM-event").addClass("future");
-    };
+    $(".time-block").each(function (){
+        // using parseInt to return an integer according to MDN and this to reference an the time-block above
+        var block = parseInt($this).attr("id").split("hour")[0];
 
-    // checking if the hour is equal to, less than, or more than 9 AM to determine present, past, future.
-    var check9 = document.getAttribute("nineAM-hour");   
-    if (timeNow === check9) {
-        $("#nineAM-event").addClass("present");
-    } 
-    else if (timeNow < check9) {
-        $("#nineAM-event").addClass("past");
-    }
-    else {
-        $("#nineAM-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 10 AM to determine present, past, future.
-    var check10 = document.getAttribute("tenAM-hour");   
-    if (timeNow === check10) {
-        $("#tenAM-event").addClass("present");
-    } 
-    else if (timeNow < check10) {
-        $("#tenAM-event").addClass("past");
-    }
-    else {
-        $("#tenAM-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 11 AM to determine present, past, future.
-    var check11 = document.getAttribute("elevenAM-hour");   
-    if (timeNow === check11) {
-        $("#elevenAM-event").addClass("present");
-    } 
-    else if (timeNow < check11) {
-        $("#elevenAM-event").addClass("past");
-    }
-    else {
-        $("#elevenAM-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 12 AM to determine present, past, future.
-    var check12 = document.getAttribute("noon-hour");    
-    if (timeNow === check12) {
-        $("#noon-event").addClass("present");
-    } 
-    else if (timeNow < check12) {
-        $("#noon-event").addClass("past");
-    }
-    else {
-        $("#noon-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 1 PM to determine present, past, future.
-    var check13 = document.getAttribute("onePM-hour");   
-    if (timeNow === check13) {
-        $("#onePM-event").addClass("present");
-    } 
-    else if (timeNow < check13) {
-        $("#onePM-event").addClass("past");
-    }
-    else {
-        $("#onePM-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 2 PM to determine present, past, future.
-    var check14 = document.getAttribute("twoPM-hour");   
-    if (timeNow === check14) {
-        $("#noon-event").addClass("present");
-    } 
-    else if (timeNow < check14) {
-        $("#twoPM-event").addClass("past");
-    }
-    else {
-        $("#twoPM-event").addClass("future");
-    };
-
-    // checking if the hour is equal to, less than, or more than 3 PM to determine present, past, future.
-    var check15 = document.getAttribute("threePM-event");   
-    if (timeNow === check15) {
-        $("#threePM-event").addClass("present");
-    } 
-    else if (timeNow < check14) {
-        $("#threePM-event").addClass("past");
-    }
-    else {
-        $("#threePM-event").addClass("future");
-    };
-        
-    // checking if the hour is equal to, less than, or more than 4 PM to determine present, past, future.
-    var check16 = document.getAttribute("fourPM-event");   
-    if (timeNow === check16) {
-        $("#fourPM-event").addClass("present");
-    } 
-    else if (timeNow < check14) {
-        $("#fourPM-event").addClass("past");
-    }
-    else {
-        $("#fourPM-event").addClass("future");
-    };
+        if (block === timeNow){
+            $(this).addClass("present");
+            $(this).removeClass("past");
+            $(this).removeClass("future");
+        }
+        else if (block < timeNow) {
+            $(this).addClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("future");
+        }
+        else {
+            $(this).addclass("future");
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+        }
+    });
 };
+
+timeblockColors();
  
 // variables for the store event function 
 var saveBtn7 = $('#sevenAMSave');
@@ -205,17 +97,154 @@ saveBtn4.on('click', function () {
     localStorage.setItem("4PM", eventDescription4);
 });
 
-// attempting to keep the events when the page is refreshed, need to set and get (doesn't work)
-var containerEl = $('#container');
 
-function getStoredData (){
-    //set
-    localStorage.setItem('.container', JSON.stringify(containerSaved));
+// trying to save to the local storage so that the information stays after refresh, I think I need to set and then get the data (doesn't work)
+$(document).ready(function (){
+    // defining the description and converting it 
+    var description = $(".description").val();
 
-    //get
-    var constainerSaved = JSON.parse(localStorage.getItem('.container'));
-    containerEl = containerSaved.text
+    // saving this to local storage
+    localStorage.setItem(description);
+    localStorage.getItem(description);
+})
+
+// --------------------------------------------------------------
+// OLD CODE THAT DOESN'T WORK BUT I THINK WOULD WORK IF IT WAS TWEAKED. I WANT TO SAVE TO DISCUSS WITH TUTOR
+
+// var sevenAM = moment().hour(7);
+// var eightAM = moment().hour(8);
+// var nineAM = moment().hour(9);
+// var tenAM = moment().hour(10);
+// var elevenAM = moment().hour(11);
+// var noon = moment().hour(12);
+// var onePM = moment().hour(13);
+// var twoPM = moment().hour(14);
+// var threePM = moment().hour(15);
+// var fourPM = moment().hour(16);
+
+// (doesn't work) color coding the timeblocks to indicated if the hour is in the past, present, or future. 
+// function timeblockColors () {
+//     var timeNow = moment().hours();
+//     timeNow = parseInt(hour);
     
-};
+//     // checking if the hour is equal to, less than, or more than 7 AM to determine present, past, future.
+//     var check7 = document.getAttribute("sevenAM-hour");
+//     console.log(check7);
+//     if (timeNow === check7) {
+//         $("#sevenAM-event").addClass("present");
+//     } 
+//     else if (timeNow < check7) {
+//         $("#sevenAM-event").addClass("past");
+//     }
+//     else {
+//         $("#sevenAM-event").addClass("future");
+//     };
 
-getStoredData ();
+//     // checking if the hour is equal to, less than, or more than 8 AM to determine present, past, future.
+//     var check8 = document.getAttribute("eightAM-hour");    
+//     if (timeNow === check8) {
+//         $("#eightAM-event").addClass("present");
+//     } 
+//     else if (timeNow < check8) {
+//         $("#eightAM-event").addClass("past");
+//     }
+//     else {
+//         $("#eightAM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 9 AM to determine present, past, future.
+//     var check9 = document.getAttribute("nineAM-hour");   
+//     if (timeNow === check9) {
+//         $("#nineAM-event").addClass("present");
+//     } 
+//     else if (timeNow < check9) {
+//         $("#nineAM-event").addClass("past");
+//     }
+//     else {
+//         $("#nineAM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 10 AM to determine present, past, future.
+//     var check10 = document.getAttribute("tenAM-hour");   
+//     if (timeNow === check10) {
+//         $("#tenAM-event").addClass("present");
+//     } 
+//     else if (timeNow < check10) {
+//         $("#tenAM-event").addClass("past");
+//     }
+//     else {
+//         $("#tenAM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 11 AM to determine present, past, future.
+//     var check11 = document.getAttribute("elevenAM-hour");   
+//     if (timeNow === check11) {
+//         $("#elevenAM-event").addClass("present");
+//     } 
+//     else if (timeNow < check11) {
+//         $("#elevenAM-event").addClass("past");
+//     }
+//     else {
+//         $("#elevenAM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 12 AM to determine present, past, future.
+//     var check12 = document.getAttribute("noon-hour");    
+//     if (timeNow === check12) {
+//         $("#noon-event").addClass("present");
+//     } 
+//     else if (timeNow < check12) {
+//         $("#noon-event").addClass("past");
+//     }
+//     else {
+//         $("#noon-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 1 PM to determine present, past, future.
+//     var check13 = document.getAttribute("onePM-hour");   
+//     if (timeNow === check13) {
+//         $("#onePM-event").addClass("present");
+//     } 
+//     else if (timeNow < check13) {
+//         $("#onePM-event").addClass("past");
+//     }
+//     else {
+//         $("#onePM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 2 PM to determine present, past, future.
+//     var check14 = document.getAttribute("twoPM-hour");   
+//     if (timeNow === check14) {
+//         $("#noon-event").addClass("present");
+//     } 
+//     else if (timeNow < check14) {
+//         $("#twoPM-event").addClass("past");
+//     }
+//     else {
+//         $("#twoPM-event").addClass("future");
+//     };
+
+//     // checking if the hour is equal to, less than, or more than 3 PM to determine present, past, future.
+//     var check15 = document.getAttribute("threePM-event");   
+//     if (timeNow === check15) {
+//         $("#threePM-event").addClass("present");
+//     } 
+//     else if (timeNow < check14) {
+//         $("#threePM-event").addClass("past");
+//     }
+//     else {
+//         $("#threePM-event").addClass("future");
+//     };
+        
+//     // checking if the hour is equal to, less than, or more than 4 PM to determine present, past, future.
+//     var check16 = document.getAttribute("fourPM-event");   
+//     if (timeNow === check16) {
+//         $("#fourPM-event").addClass("present");
+//     } 
+//     else if (timeNow < check14) {
+//         $("#fourPM-event").addClass("past");
+//     }
+//     else {
+//         $("#fourPM-event").addClass("future");
+//     };
+// };
