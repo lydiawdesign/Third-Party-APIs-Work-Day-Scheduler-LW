@@ -51,3 +51,5 @@ WHEN I refresh the page
 THEN the saved events persist
 
 - tried doing this in 100-17 by defining the variable of description to get the value added and then setting and getting the item to the local storage. (doesn't work)
+
+Copyright (c) 2021 Lydia Williamson
